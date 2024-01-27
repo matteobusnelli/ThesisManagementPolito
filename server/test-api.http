@@ -1,0 +1,79 @@
+# This file could be used for testing the API with Visual Studio Code
+
+## Execute Log In of user 1 
+POST http://localhost:3001/api/session/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "mario.rossi@polito.it",
+    "password": "P123456"
+}
+###
+
+## Execute Log In of user 1 
+POST http://localhost:3001/api/session/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "luca.esposito@studenti.polito.it",
+    "password": "S123456"
+}
+###
+# New reservation
+POST http://localhost:3001/api/newThesis
+Content-Type: application/json
+
+{   
+    
+    "title": "Test ERROR2",
+    "description": "Test description",
+    "supervisor_id":"P123456",
+    "thesis_level": "Bachelor",
+    "type_name": "Test type_name2",
+    "required_knowledge": " Test required_knowledge",
+    "notes": " test noted",
+    "expiration": "2024-12-31 23:59:59",
+    "cod_degree": "DEGR01",
+    "is_archived": 0,
+    "keywords" : "IoT, Genetica",
+    "cod_group" : "GRP01",
+    "cosupervisors_external": ["antonio.bruno@email.org"],
+    "cosupervisors_internal": ["P123456"]
+    
+}
+###
+
+# New external cosupervisor
+POST http://localhost:3001/api/newExternalCosupervisor
+Content-Type: application/json
+
+{   
+    "email": "testmai22222222l@mail.org",
+    "name":"testname",
+    "surname":"testsurname"
+    
+}
+###
+
+## Retrieving all external supervisors .
+GET http://localhost:3001/api/listExternalCosupervisors HTTP/1.1
+###
+
+GET http://localhost:3001/api/student/applications HTTP/1.1
+###
+
+# New reservation
+POST http://localhost:3001/api/newRequest
+Content-Type: application/json
+
+{   
+    
+    "title": "Test ERROR2",
+    "description": "Test description",
+    "supervisor_id":"P123456",
+    "thesis_level": "Bachelor",
+    "type_name": "Test type_name2",
+    "cod_degree": "DEGR01",
+    "cod_group" : ["GRP01"]
+}
+###

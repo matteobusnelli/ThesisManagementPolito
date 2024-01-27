@@ -1,0 +1,12 @@
+# dependencies
+/node_modules
+coverage/
+studentFiles/
+
+# misc
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.env
+

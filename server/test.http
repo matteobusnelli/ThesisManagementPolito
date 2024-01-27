@@ -1,0 +1,119 @@
+####
+POST http://localhost:3001/api/session/login HTTP/1.1
+content-type: application/json
+
+
+{
+
+    "username": "mario.rossi@polito.it",
+    "password": "P123456"
+}
+
+
+######
+POST http://localhost:3001/api/session/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "luca.esposito@studenti.polito.it",
+    "password": "S123456"
+}
+
+######
+## Execute Log Out.
+DELETE http://localhost:3001/api/session/logout HTTP/1.1
+###
+
+
+###
+POST http://localhost:3001/api/newApply
+Content-Type: application/json
+
+{   
+    "thesis_id": 5
+}
+###
+POST http://localhost:3001/api/newExternalCosupervisor
+Content-Type: application/json
+
+{   
+    "name": "luca",
+    "surname": "rossi",
+    "email": "sfsdfsdf"
+}
+###
+
+
+###
+PUT http://localhost:3001/api/updateThesesArchivation
+Content-Type: application/json
+
+{   
+    "datetime": "2026-01-21T10:00:26.145Z"
+}
+###
+PUT http://localhost:3001/api/updateApplicationStatus
+Content-Type: application/json
+
+{   
+    "thesis_id": 3,
+    "student_id": "S123456",
+    "status": "Accepted"
+}
+###
+GET http://localhost:3001/api/student/S123456/applications
+###
+
+GET http://localhost:3001/api/getProposalsProfessor
+###
+
+PUT http://localhost:3001/api/archiveProposalManual
+Content-Type: application/json
+
+{   
+    "thesis_id": 3
+}
+###
+
+PUT http://localhost:3001/api/updateThesis
+Content-Type: application/json
+
+{   
+    "thesis_id": 1,
+    "title": "PROVA",
+    "description": "PROVA",
+    "supervisor_id" : "P654321",
+    "thesis_level": "Bachelor",
+    "type_name": "PROVA",
+    "required_knowledge": "PROVA",
+    "notes": "PROVA",
+    "expiration": "2050-01-01T00:00:00.000Z",
+    "cod_degree": "DEGR02",
+    "is_archived": false,
+    "keywords": "PROVA, PROVA",
+    "cosupervisors_internal": ["P123456"],
+    "cosupervisors_external": ["elena.conti@email.net"],
+    "cod_group": "GRP02"
+}
+
+###
+
+POST http://localhost:3001/api/newThesis
+Content-Type: application/json
+
+{   
+    "title": "PROVA",
+    "description": "PROVA",
+    "supervisor_id" : "P654321",
+    "thesis_level": "Bachelor",
+    "type_name": "PROVA",
+    "required_knowledge": "PROVA",
+    "notes": "PROVA",
+    "expiration": "2050-01-01T00:00:00.000Z",
+    "cod_degree": "DEGR02",
+    "is_archived": false,
+    "keywords": "PROVA, PROVA",
+    "cosupervisors_internal": ["P123456"],
+    "cosupervisors_external": ["elena.conti@email.net"],
+    "cod_group": "GRP02"
+}

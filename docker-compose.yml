@@ -1,0 +1,48 @@
+# Docker Compose version
+version: '3.4'
+
+# Docker services definition
+services:
+
+  # Server Service
+  server:
+    restart: always  # Always restart the server service if it stops
+    image: carla802/server_thesis_management_grp13:latest # Pull server image from Dockerhub
+    environment:
+      MYSQL_PASSWORD: "rootroot"
+      SERVER_PORT: 3001
+      CLIENT_PORT: 5173
+      DB_PORT: 3306
+    ports:
+      - 3001:3001 # Map host port to container port
+    depends_on:
+      - database  # Starts after database
+
+  # Client Service
+  client:
+    restart: always  # Always restart the client service if it stops
+    image: carla802/client_thesis_management_grp13:latest # Pull client image from Dockerhub
+    depends_on:
+      - server  # Starts after server
+    command: run dev -- --host  # Command to run the client service
+    environment:
+      SERVER_PORT: 3001
+      CLIENT_PORT: 5173
+      DB_PORT: 3306
+    ports:
+      - 5173:5173  # Map host port to container port
+
+  # Database Service
+  database:
+    image: carla802/db_thesis_management_grp13:latest  # Pull database image from Dockerhub
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot  # Root user password
+      MYSQL_DATABASE: db_se_thesismanagement  # Name of the database
+    ports:
+      - 3307:3306  # Map host port to container port
+    volumes:
+      - ./db-data:/var/lib/mysql:rw  # Mount volume to store MySQL data
+
+# Volume for storing MySQL data
+volumes:
+  db-data:
