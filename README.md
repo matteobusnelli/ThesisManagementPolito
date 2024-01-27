@@ -37,7 +37,6 @@ https://youtu.be/uFxvY_WfqJY
     - [OTHER 3 Client](#other-3-client)
 - [Database Tables](#database-tables)
 - [Main React Components](#main-react-components)
-- [Users Credentials](#user-credentials)
 
 ## React Client Application Routes
 
