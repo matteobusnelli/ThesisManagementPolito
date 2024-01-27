@@ -986,15 +986,5 @@ This table contains all the student applications and their status.
 - `NewProposal` (inside `NewProposal.jsx`): It's a component that appears in the `/newproposal` route, only accessible by authenticated professors. It's a form component that handles the creation of a new thesis proposal. The user has to enter a few mandatory fields which are : title, supervisor_id, type, level, group, degree, expiration. The others are optional. In order to choose external co-supervisors the user can select one or more existing ones, or add a new one by clicking on the corresponding button and fill the form in the `NewExternalCosupervisor.jsx` component. The errors returned by the server are displayed at the bottom of the form when the user clicks on the create button. The internal co-supervisors and keywords inputs are handled by the `ChipsInput.jsx`component. The user has to enter them one by one by pressing enter each time.
 - `TeacherPage` (inside `TeacherPage.jsx`): It's a component that appears in the `/teacher` route, only accessible by authenticated professors. It contains a button redirecting to the `NewProposal`component.
 
-## Users Credentials
-
-| Role  | Email | Password |
-|--------|---------|--------|
-| teacher |   mario.rossi@polito.it                |   P123456   	|
-| teacher |   sofia.bianchi@polito.it              |   P654321   	|
-| student |   luca.esposito@studenti.polito.it     |   S123456   	|
-| student |   alessandra.moretti@studenti.polito.it|   S654321   	|
-|secretary clerk |   paola.giallo@polito.it        |   E123456   	|
-
 ## LICENSE
 ![Apache License](LICENSE)
